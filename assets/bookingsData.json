@@ -1,0 +1,65 @@
+{
+    "bookings": [
+      {
+        "id": "1",
+        "item": "Honda Civic Rental",
+        "time": "2024-07-01 10:00",
+        "amount": "$99"
+      },
+      {
+        "id": "2",
+        "item": "SUV Wash",
+        "time": "2024-07-01 14:00",
+        "amount": "$20"
+      },
+      {
+        "id": "3",
+        "item": "Car Towing - Sedan",
+        "time": "2024-07-02 09:30",
+        "amount": "$50"
+      },
+      {
+        "id": "4",
+        "item": "Toyota Camry Rental",
+        "time": "2024-07-02 12:00",
+        "amount": "$120"
+      },
+      {
+        "id": "5",
+        "item": "Sedan Wash",
+        "time": "2024-07-02 16:00",
+        "amount": "$18"
+      },
+      {
+        "id": "6",
+        "item": "Car Towing - SUV",
+        "time": "2024-07-03 08:30",
+        "amount": "$60"
+      },
+      {
+        "id": "7",
+        "item": "MPV Wash",
+        "time": "2024-07-03 11:00",
+        "amount": "$25"
+      },
+      {
+        "id": "8",
+        "item": "Benz GLE Rental",
+        "time": "2024-07-03 14:00",
+        "amount": "$150"
+      },
+      {
+        "id": "9",
+        "item": "Car Towing - MPV",
+        "time": "2024-07-04 10:00",
+        "amount": "$55"
+      },
+      {
+        "id": "10",
+        "item": "Prado Rental",
+        "time": "2024-07-04 13:00",
+        "amount": "$200"
+      }
+    ]
+  }
+  

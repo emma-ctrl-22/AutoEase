@@ -1,0 +1,83 @@
+{
+    "types": [
+      { "id": "1", "type": "All" },
+      { "id": "2", "type": "Sedan" },
+      { "id": "3", "type": "SUV" },
+      { "id": "4", "type": "MPV" },
+      { "id": "5", "type": "Hatchback" }
+    ],
+    "cars": [
+      {
+        "id": "1",
+        "type": "Sedan",
+        "name": "Honda Civic",
+        "transmission": "Automatic/Manual",
+        "price": "$99/day",
+        "image": "car1"
+      },
+      {
+        "id": "2",
+        "type": "Sedan",
+        "name": "Toyota Corrola",
+        "transmission": "Automatic/Manual",
+        "price": "$99/day",
+        "image": "car1"
+      },
+      {
+        "id": "3",
+        "type": "Sedan",
+        "name": "Toyota Camry",
+        "transmission": "Automatic/Manual",
+        "price": "$99/day",
+        "image": "car1"
+      },
+      {
+        "id": "4",
+        "type": "SUV",
+        "name": "Honda Vezel",
+        "transmission": "Automatic/Manual",
+        "price": "$99/day",
+        "image": "car1"
+      },
+      {
+        "id": "5",
+        "type": "SUV",
+        "name": "Benz GLE",
+        "transmission": "Automatic/Manual",
+        "price": "$99/day",
+        "image": "car1"
+      },
+      {
+        "id": "6",
+        "type": "SUV",
+        "name": "Prado",
+        "transmission": "Automatic/Manual",
+        "price": "$99/day",
+        "image": "car1"
+      },
+      {
+        "id": "7",
+        "type": "MPV",
+        "name": "Toyota Aqua",
+        "transmission": "Automatic/Manual",
+        "price": "$99/day",
+        "image": "car1"
+      }, {
+        "id": "8",
+        "type": "MPV",
+        "name": "Toyota Aqua",
+        "transmission": "Automatic/Manual",
+        "price": "$99/day",
+        "image": "car1"
+      },
+      {
+        "id": "9",
+        "type": "MPV",
+        "name": "Toyota Aqua",
+        "transmission": "Automatic/Manual",
+        "price": "$99/day",
+        "image": "car1"
+      }
+    ]
+  }
+  

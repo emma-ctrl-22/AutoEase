@@ -1,0 +1,142 @@
+{
+    "services": [
+      { "id": "1", "type": "Car Rental" },
+      { "id": "2", "type": "Car Wash" },
+      { "id": "3", "type": "Car Towing" }
+    ],
+    "providers": [
+      {
+        "id": "1",
+        "type": "Car Rental",
+        "name": "Rental Co.",
+        "about": "We offer a wide range of rental cars to suit your needs.",
+        "location": "123 Main St",
+        "cars": [
+          { "id": "1", "name": "Honda Civic" },
+          { "id": "2", "name": "Toyota Corolla" }
+        ]
+      },
+      {
+        "id": "2",
+        "type": "Car Rental",
+        "name": "Rental Co.",
+        "about": "We offer a wide range of rental cars to suit your needs.",
+        "location": "123 Main St",
+        "cars": [
+          { "id": "1", "name": "Honda Civic" },
+          { "id": "2", "name": "Toyota Corolla" }
+        ]
+      },
+      {
+        "id": "3",
+        "type": "Car Rental",
+        "name": "Rental Co.",
+        "about": "We offer a wide range of rental cars to suit your needs.",
+        "location": "123 Main St",
+        "cars": [
+          { "id": "1", "name": "Honda Civic" },
+          { "id": "2", "name": "Toyota Corolla" }
+        ]
+      },
+      {
+        "id": "4",
+        "type": "Car Wash",
+        "name": "Wash & Shine",
+        "about": "Premium car wash services for all types of vehicles.",
+        "location": "456 Elm St",
+        "prices": [
+          { "id": "1", "type": "Sedan", "price": "$15" },
+          { "id": "2", "type": "SUV", "price": "$20" }
+        ]
+      },
+      {
+        "id": "5",
+        "type": "Car Towing",
+        "name": "Tow Masters",
+        "about": "Reliable towing services for any type of car.",
+        "location": "789 Pine St",
+        "prices": [
+          { "id": "1", "type": "Sedan", "price": "$50" },
+          { "id": "2", "type": "SUV", "price": "$75" }
+        ]
+      },
+      {
+        "id": "6",
+        "type": "Car Wash",
+        "name": "Wash & Shine",
+        "about": "Premium car wash services for all types of vehicles.",
+        "location": "456 Elm St",
+        "prices": [
+          { "id": "1", "type": "Sedan", "price": "$15" },
+          { "id": "2", "type": "SUV", "price": "$20" }
+        ]
+      },
+      {
+        "id": "7",
+        "type": "Car Towing",
+        "name": "Tow Masters",
+        "about": "Reliable towing services for any type of car.",
+        "location": "789 Pine St",
+        "prices": [
+          { "id": "1", "type": "Sedan", "price": "$50" },
+          { "id": "2", "type": "SUV", "price": "$75" }
+        ]
+      },
+      {
+        "id": "8",
+        "type": "Car Towing",
+        "name": "Tow Masters",
+        "about": "Reliable towing services for any type of car.",
+        "location": "789 Pine St",
+        "prices": [
+          { "id": "1", "type": "Sedan", "price": "$50" },
+          { "id": "2", "type": "SUV", "price": "$75" }
+        ]
+      },
+      {
+        "id": "9",
+        "type": "Car Towing",
+        "name": "Tow Masters",
+        "about": "Reliable towing services for any type of car.",
+        "location": "789 Pine St",
+        "prices": [
+          { "id": "1", "type": "Sedan", "price": "$50" },
+          { "id": "2", "type": "SUV", "price": "$75" }
+        ]
+      },
+      {
+        "id": "10",
+        "type": "Car Wash",
+        "name": "Wash & Shine",
+        "about": "Premium car wash services for all types of vehicles.",
+        "location": "456 Elm St",
+        "prices": [
+          { "id": "1", "type": "Sedan", "price": "$15" },
+          { "id": "2", "type": "SUV", "price": "$20" }
+        ]
+      },
+      {
+        "id": "11",
+        "type": "Car Wash",
+        "name": "Wash & Shine",
+        "about": "Premium car wash services for all types of vehicles.",
+        "location": "456 Elm St",
+        "prices": [
+          { "id": "1", "type": "Sedan", "price": "$15" },
+          { "id": "2", "type": "SUV", "price": "$20" }
+        ]
+      },
+      {
+        "id": "12",
+        "type": "Car Wash",
+        "name": "Wash & Shine",
+        "about": "Premium car wash services for all types of vehicles.",
+        "location": "456 Elm St",
+        "prices": [
+          { "id": "1", "type": "Sedan", "price": "$15" },
+          { "id": "2", "type": "SUV", "price": "$20" }
+        ]
+      }
+    ]
+  }
+  
