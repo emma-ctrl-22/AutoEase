@@ -47,7 +47,7 @@ const DrawerNavigatorAdmin = () => {
     drawerContent={(props) => <CustomDrawerContent {...props} />}
       initialRouteName="Home"
       screenOptions={{
-        headerTitle: "AutoEase",
+        headerTitle: "AutoSave",
         headerRight: () => {
           return (
             <TouchableOpacity onPress={() => navigation.navigate('Profile')}

@@ -8,9 +8,10 @@ import {
   Alert,
   Image,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // For icons
-import { db, auth } from '../firebaseConfig'; // Adjust the import based on your Firebase config
-import { collection, query, where, getDocs, getDoc, doc, updateDoc } from 'firebase/firestore'; // Import `updateDoc`
+import { Ionicons } from '@expo/vector-icons';
+import { db, auth } from '../firebaseConfig';
+import { collection, query, where, getDocs, getDoc, doc, updateDoc } from 'firebase/firestore';
+import axios from 'axios';
 
 export default function AllRequest({ navigation }) {
   const [requests, setRequests] = useState([]);
@@ -28,21 +29,19 @@ export default function AllRequest({ navigation }) {
 
         const userId = user.uid;
 
-        // Step 1: Fetch services for the logged-in user
         const servicesQuery = query(
           collection(db, 'services'),
-          where('businessId', '==', userId) // Filter services by user's business ID
+          where('businessId', '==', userId)
         );
         const servicesSnapshot = await getDocs(servicesQuery);
         const servicesMap = {};
         servicesSnapshot.docs.forEach(serviceDoc => {
-          servicesMap[serviceDoc.id] = serviceDoc.data(); // Store service details by ID
+          servicesMap[serviceDoc.id] = serviceDoc.data();
         });
 
-        // Step 2: Fetch requests based on the service IDs
         const requestsQuery = query(
           collection(db, 'requests'),
-          where('serviceId', 'in', Object.keys(servicesMap)) // Filter requests by service IDs
+          where('serviceId', 'in', Object.keys(servicesMap))
         );
         const requestsSnapshot = await getDocs(requestsQuery);
 
@@ -50,15 +49,15 @@ export default function AllRequest({ navigation }) {
           const requestData = { id: requestDoc.id, ...requestDoc.data() };
           console.log(requestData, 'requestData');
 
-          // Fetch user details based on the document ID (userId) in the request
-          const userDocRef = doc(db, 'users', requestData.userId); // Access user document by ID
+          const userDocRef = doc(db, 'users', requestData.userId);
           const userDocSnapshot = await getDoc(userDocRef);
           const userData = userDocSnapshot.exists() ? userDocSnapshot.data() : null;
 
           return {
             ...requestData,
-            service: servicesMap[requestData.serviceId], // Add service details
-            userFullName: userData ? userData.fullName : 'Unknown User', // Add user full name
+            service: servicesMap[requestData.serviceId],
+            userFullName: userData ? userData.fullName : 'Unknown User',
+            userPhoneNumber: userData ? userData.phone : 'Unknown Phone Number',
           };
         }));
 
@@ -74,19 +73,38 @@ export default function AllRequest({ navigation }) {
     fetchRequests();
   }, [navigation]);
 
-  // Function to update request status and add paid: false field
-  const updateRequestStatus = async (id, status) => {
+  const sendSuccessLoginSms = async (phone, fullName) => {
+    const endPoint = 'https://apps.mnotify.net/smsapi';
+    const apiKey = 'TUX6IqmI8FGQEjY2isJROxxCP';
+    const successLoginMessage = `Hello ${fullName}! You have successfully created your AutoEase account. Kindly, log in to enjoy all our services.`;
+    const url = `${endPoint}?key=${apiKey}&to=${phone}&msg=${encodeURIComponent(successLoginMessage)}&sender_id=AutoEase`;
+
+    try {
+      const response = await axios.get(url); // Use GET request for mNotify API
+      console.log('Success Login SMS Response:', JSON.stringify(response.data));
+    } catch (error) {
+      console.error('Error sending SMS:', error);
+    }
+  };
+
+  const updateRequestStatus = async (id, status, userPhoneNumber, userFullName) => {
     try {
       const requestRef = doc(db, 'requests', id);
       await updateDoc(requestRef, {
         status: status,
-        paid: false, // Set paid to false
+        paid: false,
       });
       setRequests((prevRequests) =>
         prevRequests.map((req) =>
           req.id === id ? { ...req, status, paid: false } : req
         )
       );
+
+      if (status === 'accepted') {
+        // Send SMS only when request is accepted
+        sendSuccessLoginSms(userPhoneNumber, userFullName);
+      }
+
       Alert.alert(`Request ${status === 'accepted' ? 'Accepted' : 'Rejected'}`, `You have ${status} request ${id}`);
     } catch (error) {
       console.error(`Error updating request: ${error}`);
@@ -94,8 +112,8 @@ export default function AllRequest({ navigation }) {
     }
   };
 
-  const handleAccept = (id) => {
-    updateRequestStatus(id, 'accepted');
+  const handleAccept = (id, userPhoneNumber, userFullName) => {
+    updateRequestStatus(id, 'accepted', userPhoneNumber, userFullName);
   };
 
   const handleReject = (id) => {
@@ -124,7 +142,7 @@ export default function AllRequest({ navigation }) {
         ) : (
           <>
             <TouchableOpacity
-              onPress={() => handleAccept(item.id)}
+              onPress={() => handleAccept(item.id, item.userPhoneNumber, item.userFullName)}
               style={styles.button}
             >
               <Ionicons name="checkmark-circle" size={28} color="green" />

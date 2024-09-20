@@ -168,7 +168,7 @@ const SignupScreen = ({ navigation }) => {
               />
             </View>
             <View style={styles.inputGroup}>
-              <Ionicons name="phone" size={24} color="black" style={styles.sideIcon} />
+              <Ionicons name="call" size={24} color="black" style={styles.sideIcon} />
               <TextInput
                 value={phone}
                 onChangeText={setPhone}
