@@ -73,10 +73,10 @@ export default function AllRequest({ navigation }) {
     fetchRequests();
   }, [navigation]);
 
-  const sendSuccessLoginSms = async (phone, fullName) => {
+  const sendSuccessRequestSms = async (phone, fullName) => {
     const endPoint = 'https://apps.mnotify.net/smsapi';
     const apiKey = 'TUX6IqmI8FGQEjY2isJROxxCP';
-    const successLoginMessage = `Hello ${fullName}! You have successfully created your AutoEase account. Kindly, log in to enjoy all our services.`;
+    const successLoginMessage = `Hello ${fullName}! Your request has successfully been accepted. You will receive a call shortly.`;
     const url = `${endPoint}?key=${apiKey}&to=${phone}&msg=${encodeURIComponent(successLoginMessage)}&sender_id=AutoEase`;
 
     try {
@@ -102,7 +102,7 @@ export default function AllRequest({ navigation }) {
 
       if (status === 'accepted') {
         // Send SMS only when request is accepted
-        sendSuccessLoginSms(userPhoneNumber, userFullName);
+        sendSuccessRequestSms(userPhoneNumber, userFullName);
       }
 
       Alert.alert(`Request ${status === 'accepted' ? 'Accepted' : 'Rejected'}`, `You have ${status} request ${id}`);
