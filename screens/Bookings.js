@@ -123,7 +123,7 @@ export default function Bookings() {
             <View style={styles.bookingItem}>
               <Text style={styles.item}>{item.serviceName}</Text>
               <Text style={styles.type}>{item.serviceType}</Text>
-              <Text style={styles.amount}>Price: ${item.price}</Text>
+              <Text style={styles.amount}>Price: GH₵{item.price}</Text>
               <View style={styles.statusContainer}>
                 {item.paid ? (
                   <Text style={styles.paidBadge}>Paid</Text>

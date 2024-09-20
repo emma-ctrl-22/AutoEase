@@ -49,7 +49,7 @@ export default function VehicleDetail({ route, navigation }) {
         {service.businessType === "carRental" && (
           <Text style={styles.serviceTransmission}>{service.transmission}</Text>
         )}
-        <Text style={styles.servicePrice}>${service.price}</Text>
+        <Text style={styles.servicePrice}>GH₵{service.price}</Text>
 
         <Text style={styles.sectionTitle}>About</Text>
         <Text style={styles.serviceDescription}>{service.carDescription}</Text>

@@ -120,7 +120,7 @@ const AllServices = () => {
       <Image source={{ uri: item.imageUrl }} style={styles.serviceImage} />
       <View style={styles.serviceInfo}>
         <Text style={styles.serviceName}>{item.serviceName}</Text>
-        <Text style={styles.servicePrice}>${item.price}</Text>
+        <Text style={styles.servicePrice}>GHC {item.price}</Text>
         {item.businessType === 'carRental' && (
           <>
             <Text style={styles.carName}>{item.carName}</Text>

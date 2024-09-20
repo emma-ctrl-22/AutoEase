@@ -70,7 +70,7 @@ export default function ServiceDetails({ route }) {
               />
               <View style={styles.serviceInfo}>
                 <Text style={styles.serviceName}>{item.serviceName}</Text>
-                <Text style={styles.servicePrice}>${item.price}</Text>
+                <Text style={styles.servicePrice}>GH₵{item.price}</Text>
                 {item.businessType === 'carRental' && item.transmission && (
                   <Text style={styles.serviceTransmission}>{item.transmission}</Text>
                 )}

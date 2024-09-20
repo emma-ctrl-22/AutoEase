@@ -1,4 +1,3 @@
-// Home.js
 import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
@@ -24,8 +23,10 @@ export default function Home({ navigation }) {
     let q;
     if (selectedTab === "carRental") {
       q = query(servicesRef, where("businessType", "==", "carRental"));
-    } else {
+    } else if (selectedTab === "carWash") {
       q = query(servicesRef, where("businessType", "==", "carWash"));
+    } else if (selectedTab === "carTowing") {
+      q = query(servicesRef, where("businessType", "==", "carTowing"));
     }
 
     const unsubscribe = onSnapshot(
@@ -89,6 +90,22 @@ export default function Home({ navigation }) {
             Car Wash
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.tabItem, selectedTab === "carTowing" && styles.selectedTab]}
+          onPress={() => {
+            setSelectedTab("carTowing");
+            setLoading(true);
+          }}
+        >
+          <Text
+            style={[
+              styles.tabText,
+              selectedTab === "carTowing" && styles.selectedTabText,
+            ]}
+          >
+            Car Tow
+          </Text>
+        </TouchableOpacity>
       </View>
 
       {/* Service List */}
@@ -111,7 +128,9 @@ export default function Home({ navigation }) {
                   {selectedTab === "carRental" && (
                     <Text style={styles.serviceTransmission}>{item.transmission}</Text>
                   )}
-                  <Text style={styles.servicePrice}>${item.price}</Text>
+                  <Text style={styles.servicePrice}>
+                    GH₵{item.price }
+                  </Text>
                 </View>
               </View>
             </TouchableOpacity>

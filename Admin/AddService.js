@@ -126,6 +126,7 @@ const AddService = ({ navigation }) => {
   const tabs = [
     { label: 'Car Wash', value: 'carWash' },
     { label: 'Car Rental', value: 'carRental' },
+    { label: 'Car Towing', value: 'carTowing' },
   ];
 
   return (
